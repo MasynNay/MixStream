@@ -1,55 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MixStream</title>
-    <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet" type='text/css'>
-    <link rel="stylesheet" href="./assets/css/foundation.css">
-    <link rel="stylesheet" href="./assets/css/foundation.min.css">
-    <link rel="stylesheet" href="./assets/css/app.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MixStream</title>
+  <link href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.css" rel="stylesheet"
+    type='text/css'>
+  <link rel="stylesheet" href="./assets/css/foundation.css">
+  <link rel="stylesheet" href="./assets/css/foundation.min.css">
+  <link rel="stylesheet" href="./assets/css/app.css">
+  <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 
 <div class="holy-grail-grid">
-    <div class="holy-grail-header">
-      <!--<img class="logo" src="./assets/images/MixStream.jpeg" alt="MixStream">-->
-    </div>
-  
-    <div class="holy-grail-left text-center">
-      <h4>Search For A Show</h4>
-      <div class="input-group input-group-rounded">
-        <input class="input-group-field" type="search">
-        <div class="input-group-button">
-          <input type="submit" class="button secondary" value="Search">
-          <ul class="search-history"></ul>
-        </div>
-      </div>  
-    </div>
-  
-    <div class="holy-grail-middle large-8 columns">
-      <h3>Search Results</h3>
-      <h4 class="search-result"><button class="button button-like">
-        <span>Favorite</span>
-        <i class="fa fa-star"></i>
-      </button></h4>
-      <div class="marketing-site-content-section">
-        <div class="marketing-site-content-section-block" style="border:4px solid #858383;">
-          <h5 class="marketing-site-content-section-block-header">Available Streaming Services For Your Result</h5>
-          <img class="logo2" src="https://download.logo.wine/logo/Uber/Uber-Logo.wine.png" alt="Uber Logo"/>
-        </div>
-        <div class="marketing-site-content-section-block small-order-2 medium-order-1" style="border: 4px solid #858383;">
-          <h5 class="marketing-site-content-section-block-header">IMDB Results:</h5>
-          <!--<img class="logo2" src="https://download.logo.wine/logo/Lyft/Lyft-Logo.wine.png" alt="Lyft Logo"/>-->
-        </div>
+  <div class="holy-grail-header">
+  </div>
+
+  <div class="holy-grail-left text-center">
+    <h4>Search For A Show</h4>
+    <div class="input-group input-group-rounded">
+      <input class="input-group-field" id="textInput" type="search">
+      <div class="input-group-button">
+        <input type="submit" class="button secondary" value="Search" id="search-button">
       </div>
     </div>
-    <div class="holy-grail-footer text-center">
-        <h6>Made With 💚 By: Brandon, Charles, Eva & Masyn ---- ©️2023</h6>
+    <ul class="search-history"></ul>
+  </div>
+
+  <div class="holy-grail-middle large-8 columns">
+    <div class="favorites">
+      <h3>Future Search Results</h3>
+    </div>
+    <div class="marketing-site-content-section">
+      <div class="marketing-site-content-section-block" style="border:4px solid #858383;">
+        <h5 class="marketing-site-content-section-block-header">Available Streaming Services For Your Result</h5>
+        <ul class="streaming-results"></ul>
       </div>
-  
-</body>
-<script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.5/dist/js/foundation.min.js" crossorigin="anonymous"></script>
-<script src="./assets/js/script.js"></script>
+      <div class="marketing-site-content-section-block small-order-2 medium-order-1" style="border: 4px solid #858383;">
+        <h5 class="marketing-site-content-section-block-header">IMDB Results:</h5>
+        <!--<img class="logo2" src="https://download.logo.wine/logo/Lyft/Lyft-Logo.wine.png" alt="Lyft Logo"/>-->
+      </div>
+    </div>
+  </div>
+  <div class="holy-grail-footer text-center">
+    <h6>Made With 💚 By: Brandon, Charles, Eva & Masyn ---- ©️2023</h6>
+  </div>
+
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.5/dist/js/foundation.min.js"
+    crossorigin="anonymous"></script>
+  <script src="./assets/js/script.js"></script>
+
 </html>
