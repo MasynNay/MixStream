@@ -32,7 +32,14 @@ function searchOption(event) {
         favoriteEl.innerHTML = `<h3>Search Results For: ${results.name}</h3> <button class="button button-like">
         <span>Favorite</span>
         <i class="fa fa-star"></i>
-      </button>`
+        </button>`
+
+        var streamingResultsEl = document.querySelector('.streaming-results')
+        streamingResultsEl.innerHTML = data.results[0].locations.map((movie) => {
+            return `<a href="${movie.url}">
+            <img class="marketing-site-content-section" src="${movie.icon}" alt="${movie.display_name} icon">
+            </a>`
+        }).join(' ');
     }
 
     return utellyInfo()
@@ -40,8 +47,6 @@ function searchOption(event) {
 
 //TODO: create display of list for the icons to appear. This may require 
 // a loop. 
-function callStreaming() {
-    var streamingResultsEl = document.querySelector('.streaming-results')
-    streamingResultsEl.innerHTML = `<li>
-}
+
+
 searchBtn.addEventListener("click", searchOption)
