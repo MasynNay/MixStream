@@ -80,12 +80,17 @@ h4 {
 h3 {
   color: white;
 }
-p {
+#imdb-container {
   color: #242424;
   text-align: center;
 }
-
+ul {
+  font-size: 28px;
+  margin-top: 5%;
+  list-style-position: inside;
+}
 #naptime {
+  size: 100px;
   display: flex;
   flex-direction: column;
   justify-content: center;
