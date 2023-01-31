@@ -26,42 +26,13 @@
         <input type="submit" class="button secondary" value="Search" id="search-button">
       </div>
     </div>
-    <ul class="search-history"></ul>
-    <table class="responsive-card-table unstriped">
-      <thead>
-        <tr>
-          <th class="text-center">Media Name</th>
-          <th class="text-center">Date Added</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td id="media1"></td>
-          <td id="date1"></td>
-        </tr>
-        <tr>
-          <td id="media2"></td>
-          <td id="date2"></td>
-        </tr>
-        <tr>
-          <td id="media3"></td>
-          <td id="date3"></td>
-        </tr>
-        <tr>
-          <td id="media4"></td>
-          <td id="date4"></td>
-        </tr>
-        <tr>
-          <td id="media5"></td>
-          <td id="date5"></td>
-        </tr>
-        <tr>
-          <td id="media6"></td>
-          <td id="date6"></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+    <div class="card" id= "favorite-card">
+      <div class="card-section">
+        <h5 id="favorite-header">Favorites</h5>
+        <ul class="search-history"></ul>
+      </div>
+    </div>
+    </div>
 
   <div class="holy-grail-middle large-8 columns">
     <div class="favorites">
@@ -72,7 +43,7 @@
         <h5 class="marketing-site-content-section-block-header text-center">Streaming Services:</h5>
         <div class="streaming-results" id="naptime"></div>
       </div>
-      <div class="marketing-site-content-section-block small-order-2 medium-order-1" style="border: 4px solid #858383;">
+      <div class="marketing-site-content-section-block" style="border: 4px solid #858383;">
         <h5 class="marketing-site-content-section-block-header">IMDB Results:</h5>
         <div id="imdb-container">
           <div id="imdb-poster"></div>
@@ -81,7 +52,6 @@
           </div>
           <div id="imdb-ratings"></div>
         </div>
-        <!--<img class="logo2" src="https://download.logo.wine/logo/Lyft/Lyft-Logo.wine.png" alt="Lyft Logo"/>-->
       </div>
     </div>
   </div>
