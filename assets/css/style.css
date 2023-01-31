@@ -127,13 +127,6 @@ flex-direction: column;
   scale: 100%;
 }
 
-#naptime {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  margin: 3rem;
-}
-
 #imdb-container {
   display: flex;
   flex-direction: column-reverse;
