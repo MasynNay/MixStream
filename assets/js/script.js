@@ -1,3 +1,4 @@
+//Required variable for Utelly fetch
 const options = {
     method: 'GET',
     headers: {
@@ -5,21 +6,35 @@ const options = {
         'X-RapidAPI-Host': 'utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com'
     }
 };
+
+// Required variable for IMDB fetch
 const requestOptions = {
     method: 'GET',
     redirect: 'follow'
   };
+
+//Search engine variables
 var textInput = document.querySelector('#textInput')
 var searchBtn = document.querySelector('#search-button')
 var search
+
+//code pulled from Utelly API request
 var imdbCode
 
+//Variables for favorite feature
+var favoriteBtn = document.querySelector('.favorite-button')
+var favorites = []
+var searchTxt = ''
+
+//Utelly API URL function
 function getUtelly() {
     var utellyURL = `https://utelly-tv-shows-and-movies-availability-v1.p.rapidapi.com/lookup?term=${search}&country=us`
     return utellyURL
 }
+
+//IMDB API URL function
 function getTitle() {
-    var imdbUrl = `https://imdb-api.com/en/API/Title/k_gxh3r11l/${imdbCode}/FullCast,Posters,Ratings`
+    var imdbUrl = `https://imdb-api.com/en/API/Title/k_2lt7mvky/${imdbCode}/FullCast,Posters,Ratings`
     return imdbUrl;
 }
 
@@ -31,13 +46,13 @@ function searchOption(event) {
     async function utellyInfo() {
         const response = await fetch(getUtelly(), options)
         const data = await response.json()
-        // console.log(data);
+        console.log(data);
         imdbCode = data.results[0].external_ids.imdb.id
         // console.log(imdbCode);
 
         var results = data.results[0]
         var favoriteEl = document.querySelector('.favorites')
-        favoriteEl.innerHTML = `<h3>Search Results For: ${results.name}</h3> <button class="button button-like">
+        favoriteEl.innerHTML = `<h3>Search Results For: ${results.name}</h3> <button class="button button-like favorite-button">
         <span>Favorite</span>
         <i class="fa fa-star"></i>
         </button>`
@@ -63,36 +78,61 @@ function searchOption(event) {
             }
          }).join('')
          
-    }
-
+         
+         renderFavorites()
+        }
+        
+        favoriteBtn.onclick = function() {
+            saveToLocalStorage()
+        }
    
-
+  
     return utellyInfo()
 }
 
-//TODO: create display of list for the icons to appear. This may require 
-// a loop. 
 
 
 searchBtn.addEventListener("click", searchOption)
 
 
-   
-var searchBtn = document.querySelector('#search-btn')
-var search = document.textInput;
-
-
-  function getImdb () {
-    var imdbUrl = `https://imdb-api.com/en/Search/k_gxh3r11l`
-    return imdbUrl;
-};
-
-
-function imdbResponse () {
-
+function saveToLocalStorage() {
+    textInput = ''
+    if (favorites.includes(searchTxt)){
+        return
+    }
+    favorites.push(searchTxt)
+    locatlStorage.setItem('Show', JSON.stringify(favorites))
 }
 
+var favoritesList = document.querySelector('.favorites-list')
 
+function renderFavorites () {
+    // favoritesList.innerHTML = ''
+    for (var i = 0; i < favorites.length; i++) {
+        var favorite = favorites[i]
+        
+        const tr = favoritesList.insertRow();
+        const td = tr.insertCell();
+
+        td.appendchild(document.createTextNode(favorite))
+    }
+}
+
+function init() {
+    var storedFavorites = JSON.parse(localStorage.getItem('Show'))
+
+    if (storedFavorites !== null) {
+favorites = storedFavorites
+    }
+    renderFavorites()
+    
+}
+
+textInput.addEventListener("change", function() {
+    searchTxt = textInput.value
+})
+
+init()
 //searchBtn.addEventListener('click', getImdb());
 
   
