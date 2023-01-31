@@ -22,7 +22,7 @@ var search
 var imdbCode
 
 //Variables for favorite feature
-var favoriteBtn = document.querySelector('.favorite-button')
+var favoriteBtn = document.querySelector('#favorite-button')
 var favorites = []
 var searchTxt = ''
 
@@ -38,9 +38,15 @@ function getTitle() {
     return imdbUrl;
 }
 
+var favoriteEl = document.querySelector('.favorites')
+
+var title;
+
 function searchOption(event) {
-    event.preventDefault()
-    search = textInput.value
+   if (event) {
+    event.preventDefault();
+   }
+    
     // console.log(search);
 
     async function utellyInfo() {
@@ -51,8 +57,8 @@ function searchOption(event) {
         // console.log(imdbCode);
 
         var results = data.results[0]
-        var favoriteEl = document.querySelector('.favorites')
-        favoriteEl.innerHTML = `<h3>Search Results For: ${results.name}</h3> <button class="button button-like favorite-button">
+        title = results.name
+        favoriteEl.innerHTML = `<h3>Search Results For: ${results.name}</h3> <button id="favorite-button" class="button button-like">
         <span>Favorite</span>
         <i class="fa fa-star"></i>
         </button>`
@@ -82,58 +88,71 @@ function searchOption(event) {
          renderFavorites()
         }
         
-        favoriteBtn.onclick = function() {
-            saveToLocalStorage()
-        }
-   
-  
-    return utellyInfo()
-}
-
-
-
+        
+        
+        return utellyInfo()
+    }
+    
+    
+    
+    
 searchBtn.addEventListener("click", searchOption)
 
 
-function saveToLocalStorage() {
-    textInput = ''
-    if (favorites.includes(searchTxt)){
+function saveToLocalStorage(name) {
+    textInput.value = ''
+    if (favorites.includes(name)){
         return
     }
-    favorites.push(searchTxt)
-    locatlStorage.setItem('Show', JSON.stringify(favorites))
+    favorites.push(name)
+    localStorage.setItem('Show', JSON.stringify(favorites))
 }
 
-var favoritesList = document.querySelector('.favorites-list')
+var favoritesList = document.querySelector('.search-history')
 
 function renderFavorites () {
-    // favoritesList.innerHTML = ''
+    favoritesList.innerHTML = ''
     for (var i = 0; i < favorites.length; i++) {
         var favorite = favorites[i]
         
-        const tr = favoritesList.insertRow();
-        const td = tr.insertCell();
-
-        td.appendchild(document.createTextNode(favorite))
+        var btn = document.createElement("button")
+        btn.textContent = favorite
+        btn.setAttribute("data-value", favorites[0])
+        
+        favoritesList.appendChild(btn)
     }
 }
 
 function init() {
     var storedFavorites = JSON.parse(localStorage.getItem('Show'))
-
+    
     if (storedFavorites !== null) {
-favorites = storedFavorites
+        favorites = storedFavorites
     }
     renderFavorites()
     
 }
 
+favoritesList.addEventListener('click', function(event) {
+    var btn = event.target
+    console.log(btn.innerText);
+    search = btn.innerText
+    searchOption()
+})  
+
 textInput.addEventListener("change", function() {
-    searchTxt = textInput.value
+    search = textInput.value
+})
+
+favoriteEl.addEventListener('click', function (event) {
+    var btn = event.target
+    console.log(btn);
+    saveToLocalStorage(title)
+    renderFavorites()
 })
 
 init()
-//searchBtn.addEventListener('click', getImdb());
+
 
   
 // TODO: set movies into local storage in search-history ul
