@@ -74,9 +74,9 @@ function searchOption(event) {
         const imdbData = await imdbResults.json()
         console.log(imdbData);
         var posterEl = document.querySelector('#imdb-poster')
-         posterEl.innerHTML = `<img id="movie-poster" alt="media poster" src="${imdbData.image}">`
+         posterEl.innerHTML = `<img id="imdb-poster" alt="media poster" src="${imdbData.image}">`
         var ratingsEl = document.querySelector('#imdb-ratings')
-         ratingsEl.innerHTML = `<p>IMDB Rating: ${imdbData.imDbRating}</p>`
+         ratingsEl.innerHTML = `<p>IMDB Rating: ${imdbData.imDbRating}</p> <h5> Actors: </h5>`
         var castEl = document.querySelector('#imdb-cast')
          castEl.innerHTML = imdbData.fullCast.actors.map((actor, idx) => {
             if (idx <= 2) {
@@ -92,8 +92,6 @@ function searchOption(event) {
         
         return utellyInfo()
     }
-    
-    
     
     
 searchBtn.addEventListener("click", searchOption)
@@ -119,6 +117,8 @@ function renderFavorites () {
         btn.textContent = favorite
         btn.setAttribute("data-value", favorites[0])
         
+        btn.classList.add("listButtons")
+        btn.classList.add("button-like")
         favoritesList.appendChild(btn)
     }
 }
