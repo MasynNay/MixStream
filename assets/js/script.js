@@ -68,7 +68,7 @@ function searchOption(event) {
         const imdbData = await imdbResults.json()
         console.log(imdbData);
         var posterEl = document.querySelector('#imdb-poster')
-         posterEl.innerHTML = `<img alt="media poster" src="${imdbData.image}">`
+         posterEl.innerHTML = `<img id="movie-poster" alt="media poster" src="${imdbData.image}">`
         var ratingsEl = document.querySelector('#imdb-ratings')
          ratingsEl.innerHTML = `<p>IMDB Rating: ${imdbData.imDbRating}</p>`
         var castEl = document.querySelector('#imdb-cast')
@@ -136,7 +136,7 @@ init()
 //searchBtn.addEventListener('click', getImdb());
 
   
-// TODO: set movies into local storage
+// TODO: set movies into local storage in search-history ul
 // TODO: call local storage to display to grid
 // TODO: add event listener for favorite button
 // TODO: add event listener for favorite results
