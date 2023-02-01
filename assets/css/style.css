@@ -1,3 +1,4 @@
+/*grabbing class button-like from html and adding style*/
 .button-like {
   border: 2px solid #b6dac7;
   background-color: transparent;
@@ -11,25 +12,25 @@
   color: #b6dac7;
   transition: all ease 0.4s;
 }
-
+/*giving class button-like span margin*/
 .button-like span {
   margin-left: 0.5rem;
 }
-
+/*giving class button-like .fa and button-lik span transition styling*/
 .button-like .fa,
 .button-like span {
   transition: all ease 0.4s;
 }
-
+/*giving class button-like:focus with specific background color of transparent*/
 .button-like:focus {
   background-color: transparent;
 }
-
+/*giving both classes same color*/
 .button-like:focus .fa,
 .button-like:focus span {
   color: #b6dac7;
 }
-
+/*giving classes border color and background color*/
 .button-like:hover {
   border-color: #FFD700;
   background-color: transparent;
@@ -39,7 +40,7 @@
 .button-like:hover span {
   color: #FFD700;
 }
-
+/*giving all liked classes in html color with background color and border color*/
 .liked {
   background-color: #FFD700;
   border-color: #FFD700;
@@ -68,6 +69,7 @@
 .liked:hover span {
   color: #fefefe;
 }
+/*giving heading tags with color*/
 h6 {
   color: white;
 }
@@ -93,17 +95,17 @@ ul {
   color: #242424;
   text-align: center;
 }
-
+/*giving id imdb-poster only scale resize*/
 #imdb-poster {
   scale: 50%;
 }
-
+/*giving naptime id flex styling*/
 #naptime {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-
+/*giving id favorite-card id in html styling*/
 #favorite-card {
   display: flex;
   position: relative;
@@ -111,6 +113,7 @@ ul {
   background-color: #b6dac7;
   color: #242424;
 }
+/* giving favorite-header id from html styling with border-bottom*/
  #favorite-header {
   border-bottom: 3px solid #242424;
  }
@@ -118,7 +121,7 @@ ul {
 a {
   margin: .75rem 4em;
 }
-
+/*styling the class holy-grail-grid*/
 .holy-grail-grid {
   display: -ms-grid;
   display: grid;
@@ -131,13 +134,14 @@ a {
   background-color: #b6dac7;
 }
 
-
+/*styling the class input-group-rounded and class input-group-field*/
 .input-group-rounded .input-group-field {
   border-radius: 5000px 0 0 5000px;
   padding-left: 1rem;
   background-color: #b6dac7;
   color: #242424;
 }
+/*styling the classinput-group-rounded and input-group-button and button classes*/
 
 .input-group-rounded .input-group-button .button {
   border-radius: 0 5000px 5000px 0;
@@ -146,6 +150,7 @@ a {
   color: #242424;
 }
 
+/*styling the class marketing-site-content-section*/
 
 .marketing-site-content-section {
   display: -webkit-flex;
@@ -155,6 +160,7 @@ a {
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
 }
+/*styling the class marketing-site-content-section button round *//
 
 .marketing-site-content-section .button.round {
   border-radius: 50px;
@@ -162,6 +168,7 @@ a {
   margin-bottom: 0;
   background-color: #272526;
 }
+/*styling the class marketing-site-content-section-img*/
 
 .marketing-site-content-section .marketing-site-content-section-img {
   -webkit-align-self: center;
@@ -172,6 +179,7 @@ a {
       -ms-flex: 1 0 100%;
           flex: 1 0 100%;
 }
+/*styling the class marketing-site-content-section*-block with flex styling and color */
 
 .marketing-site-content-section .marketing-site-content-section-block {
   padding: 1rem;
@@ -196,6 +204,7 @@ a {
       -ms-flex-align: start;
           align-items: center;
 }
+/*styling the class marketing-site-content-section-header and subheader with specific font sies*/
 
 .marketing-site-content-section-block-header {
   font-size: 24px;
@@ -205,7 +214,8 @@ a {
   font-size: 13px;
 }
 
-.holy-grail-header,
+
+/*classes wiith same padding and background color*/
 .holy-grail-left,
 .holy-grail-middle, 
 .holy-grail-right,
@@ -215,6 +225,8 @@ a {
 }
 
 .holy-grail-header {
+  padding: 3rem;
+  background-color: #242424;
   background-image: url(../images/MixStream.jpeg);
   background-position: center;
   -ms-grid-column: 1;
@@ -223,13 +235,13 @@ a {
   -ms-grid-row: 1;
       grid-row-start: 1;
 }
-
+/*class with grid styling*/
 .holy-grail-footer {
   -ms-grid-column: 1;
       grid-column-start: 1;
   grid-column-end: 4;
 }
-
+/* media queries for different classes*/
 @media screen and (max-width: 60em) {
   .holy-grail-left {
     -ms-grid-row: 2;
@@ -277,7 +289,3 @@ a {
     padding: 2rem;
   }
 }
-
-/* finish styling page
-/* change imdb image location to left side of container
-/* move imdb cast and rating to the right of the image
