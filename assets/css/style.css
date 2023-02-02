@@ -76,6 +76,7 @@ h6 {
 
 h5 {
   color: #242424;
+  text-align: center;
 }
 
 h4 {
@@ -95,15 +96,51 @@ ul {
   color: #242424;
   text-align: center;
 }
+<<<<<<< HEAD
 /*giving id imdb-poster only scale resize*/
 #imdb-poster {
   scale: 50%;
 }
 /*giving naptime id flex styling*/
 #naptime {
+=======
+li {
+ list-style-type: none;
+}
+body {
+  background-color: #b6dac7;
+}
+
+.listButtons {
+  border: 2px solid #242424;
+  background-color: #242424;
+  text-decoration: none;
+  padding: 1rem;
+  margin: .2rem;
+  text-align: center;
+  border-radius: 3rem;
+  color: #b6dac7;
+  transition: all ease 0.4s;
+}
+.listButtons:hover {
+  background-color: #242424;
+  border-color: white;
+  color: white;
+}
+.search-history {
+display: flex;
+text-align: center;
+flex-direction: column;
+}
+
+#imdb-poster {
+  scale: 100%;
+}
+
+#imdb-container {
+>>>>>>> 4eaebdb369325ae90ddd5705695e97cd27711ae2
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  flex-direction: column-reverse;
 }
 /*giving id favorite-card id in html styling*/
 #favorite-card {
@@ -159,6 +196,7 @@ a {
   -webkit-flex-wrap: wrap;
       -ms-flex-wrap: wrap;
           flex-wrap: wrap;
+  margin: 3rem;
 }
 /*styling the class marketing-site-content-section button round *//
 
@@ -234,6 +272,7 @@ a {
   grid-column-end: 4;
   -ms-grid-row: 1;
       grid-row-start: 1;
+  padding: 3rem;
 }
 /*class with grid styling*/
 .holy-grail-footer {

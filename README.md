@@ -26,9 +26,12 @@ If you are a couch potato, or someone who is just looking for more information o
 
 ## Application Demonstration
 
-
+![](./assets/images/MixStreamDemo.png)
 
 ## Website Link
 
-
 https://masynnay.github.io/MixStream/
+
+## Google Slide Link
+
+https://docs.google.com/presentation/d/11Ubr2npEPQ1hoQ48d20U4cu2rme3-IZMRrBsByYRxMs/edit#slide=id.p
