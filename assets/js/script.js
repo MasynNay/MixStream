@@ -22,7 +22,7 @@ var search
 var imdbCode
 
 //Variables for favorite feature
-var favoriteBtn = document.querySelector('#favorite-button')
+var favoriteBtn = document.querySelector('.favorite-button')
 var favorites = []
 var searchTxt = ''
 
@@ -37,18 +37,12 @@ function getTitle() {
     var imdbUrl = `https://imdb-api.com/en/API/Title/k_2lt7mvky/${imdbCode}/FullCast,Posters,Ratings`
     return imdbUrl;
 }
-
-var favoriteEl = document.querySelector('.favorites')
-
-var title;
-
+//function to prevent default and add text input into value
 function searchOption(event) {
-   if (event) {
-    event.preventDefault();
-   }
-    
+    event.preventDefault()
+    search = textInput.value
     // console.log(search);
-
+//function to await for fetch and then await response
     async function utellyInfo() {
         const response = await fetch(getUtelly(), options)
         const data = await response.json()
@@ -57,26 +51,26 @@ function searchOption(event) {
         // console.log(imdbCode);
 
         var results = data.results[0]
-        title = results.name
-        favoriteEl.innerHTML = `<h3>Search Results For: ${results.name}</h3> <button id="favorite-button" class="button button-like">
+        var favoriteEl = document.querySelector('.favorites')
+        favoriteEl.innerHTML = `<h3>Search Results For: ${results.name}</h3> <button class="button button-like favorite-button">
         <span>Favorite</span>
         <i class="fa fa-star"></i>
         </button>`
-
+//streaming results 
         var streamingResultsEl = document.querySelector('.streaming-results')
         streamingResultsEl.innerHTML = data.results[0].locations.map((movie) => {
             return `<a href="${movie.url}">
             <img class="marketing-site-content-section" src="${movie.icon}" alt="${movie.display_name} icon">
             </a>`
         }).join(' ');
-
+// imdb results using fetch function
         const imdbResults = await fetch(getTitle(), requestOptions)
         const imdbData = await imdbResults.json()
         console.log(imdbData);
         var posterEl = document.querySelector('#imdb-poster')
-         posterEl.innerHTML = `<img id="imdb-poster" alt="media poster" src="${imdbData.image}">`
+         posterEl.innerHTML = `<img id="movie-poster" alt="media poster" src="${imdbData.image}">`
         var ratingsEl = document.querySelector('#imdb-ratings')
-         ratingsEl.innerHTML = `<p>IMDB Rating: ${imdbData.imDbRating}</p> <h5> Actors: </h5>`
+         ratingsEl.innerHTML = `<p>IMDB Rating: ${imdbData.imDbRating}</p>`
         var castEl = document.querySelector('#imdb-cast')
          castEl.innerHTML = imdbData.fullCast.actors.map((actor, idx) => {
             if (idx <= 2) {
@@ -88,74 +82,56 @@ function searchOption(event) {
          renderFavorites()
         }
         
-        
-        
-        return utellyInfo()
-    }
-    
-    
-searchBtn.addEventListener("click", searchOption)
-
-
-function saveToLocalStorage(name) {
-    textInput.value = ''
-    if (favorites.includes(name)){
-        return
-    }
-    favorites.push(name)
-    localStorage.setItem('Show', JSON.stringify(favorites))
+        favoriteBtn.onclick = function() {
+            saveToLocalStorage()
+        }
+   
+  
+    return utellyInfo()
 }
 
-var favoritesList = document.querySelector('.search-history')
 
+//when clicking search button search optn will appear
+searchBtn.addEventListener("click", searchOption)
+
+//function to add search text into local storage
+function saveToLocalStorage() {
+    textInput = ''
+    if (favorites.includes(searchTxt)){
+        return
+    }
+    favorites.push(searchTxt)
+    locatlStorage.setItem('Show', JSON.stringify(favorites))
+}
+//grabbing favoriteList from html
+var favoritesList = document.querySelector('.favorites-list')
+//function to add favorites list 
 function renderFavorites () {
-    favoritesList.innerHTML = ''
+    // favoritesList.innerHTML = ''
     for (var i = 0; i < favorites.length; i++) {
         var favorite = favorites[i]
         
-        var btn = document.createElement("button")
-        btn.textContent = favorite
-        btn.setAttribute("data-value", favorites[0])
-        
-        btn.classList.add("listButtons")
-        btn.classList.add("button-like")
-        favoritesList.appendChild(btn)
+        const tr = favoritesList.insertRow();
+        const td = tr.insertCell();
+
+        td.appendchild(document.createTextNode(favorite))
     }
 }
-
+//function to show stored favorites
 function init() {
     var storedFavorites = JSON.parse(localStorage.getItem('Show'))
-    
+
     if (storedFavorites !== null) {
-        favorites = storedFavorites
+favorites = storedFavorites
     }
     renderFavorites()
     
 }
 
-favoritesList.addEventListener('click', function(event) {
-    var btn = event.target
-    console.log(btn.innerText);
-    search = btn.innerText
-    searchOption()
-})  
-
 textInput.addEventListener("change", function() {
-    search = textInput.value
-})
-
-favoriteEl.addEventListener('click', function (event) {
-    var btn = event.target
-    console.log(btn);
-    saveToLocalStorage(title)
-    renderFavorites()
+    searchTxt = textInput.value
 })
 
 init()
+//searchBtn.addEventListener('click', getImdb());
 
-
-  
-// TODO: set movies into local storage in search-history ul
-// TODO: call local storage to display to grid
-// TODO: add event listener for favorite button
-// TODO: add event listener for favorite results
