@@ -97,6 +97,7 @@ ul {
   text-align: center;
 }
 <<<<<<< HEAD
+<<<<<<< HEAD
 /*giving id imdb-poster only scale resize*/
 #imdb-poster {
   scale: 50%;
@@ -109,6 +110,44 @@ li {
 }
 body {
   background-color: #b6dac7;
+=======
+li {
+ list-style-type: none;
+}
+body {
+  background-color: #b6dac7;
+}
+
+.listButtons {
+  border: 2px solid #242424;
+  background-color: #242424;
+  text-decoration: none;
+  padding: 1rem;
+  margin: .2rem;
+  text-align: center;
+  border-radius: 3rem;
+  color: #b6dac7;
+  transition: all ease 0.4s;
+}
+.listButtons:hover {
+  background-color: #242424;
+  border-color: white;
+  color: white;
+}
+.search-history {
+display: flex;
+text-align: center;
+flex-direction: column;
+}
+
+#imdb-poster {
+  scale: 100%;
+}
+
+#imdb-container {
+  display: flex;
+  flex-direction: column-reverse;
+>>>>>>> 4eaebdb369325ae90ddd5705695e97cd27711ae2
 }
 
 .listButtons {
