@@ -37,11 +37,20 @@ function getTitle() {
     var imdbUrl = `https://imdb-api.com/en/API/Title/k_2lt7mvky/${imdbCode}/FullCast,Posters,Ratings`
     return imdbUrl;
 }
+
+
+var favoriteEl = document.querySelector('.favorites');
+
+var title;
+
 //function to prevent default and add text input into value
 function searchOption(event) {
-    event.preventDefault()
-    search = textInput.value
+       if (event) {
+    event.preventDefault();
+   }
+   
     // console.log(search);
+    
 //function to await for fetch and then await response
     async function utellyInfo() {
         const response = await fetch(getUtelly(), options)
@@ -51,11 +60,13 @@ function searchOption(event) {
         // console.log(imdbCode);
 
         var results = data.results[0]
-        var favoriteEl = document.querySelector('.favorites')
+        title = results.name
+        
         favoriteEl.innerHTML = `<h3>Search Results For: ${results.name}</h3> <button class="button button-like favorite-button">
         <span>Favorite</span>
         <i class="fa fa-star"></i>
         </button>`
+        
 //streaming results 
         var streamingResultsEl = document.querySelector('.streaming-results')
         streamingResultsEl.innerHTML = data.results[0].locations.map((movie) => {
@@ -63,6 +74,7 @@ function searchOption(event) {
             <img class="marketing-site-content-section" src="${movie.icon}" alt="${movie.display_name} icon">
             </a>`
         }).join(' ');
+        
 // imdb results using fetch function
         const imdbResults = await fetch(getTitle(), requestOptions)
         const imdbData = await imdbResults.json()
@@ -81,11 +93,7 @@ function searchOption(event) {
          
          renderFavorites()
         }
-        
-        favoriteBtn.onclick = function() {
-            saveToLocalStorage()
-        }
-   
+         
   
     return utellyInfo()
 }
@@ -95,26 +103,29 @@ function searchOption(event) {
 searchBtn.addEventListener("click", searchOption)
 
 //function to add search text into local storage
-function saveToLocalStorage() {
+function saveToLocalStorage(name) {
     textInput = ''
-    if (favorites.includes(searchTxt)){
+    if (favorites.includes(name)){
         return
     }
-    favorites.push(searchTxt)
+    favorites.push(name)
     locatlStorage.setItem('Show', JSON.stringify(favorites))
 }
+
 //grabbing favoriteList from html
-var favoritesList = document.querySelector('.favorites-list')
+var favoritesList = document.querySelector('.search-history')
+
 //function to add favorites list 
 function renderFavorites () {
-    // favoritesList.innerHTML = ''
+    favoritesList.innerHTML = ''
     for (var i = 0; i < favorites.length; i++) {
         var favorite = favorites[i]
         
-        const tr = favoritesList.insertRow();
-        const td = tr.insertCell();
-
-        td.appendchild(document.createTextNode(favorite))
+        var btn = document.createElement("button")
+        btn.textContent = favorite
+        btn.setAttribute("data-value", favorites[0])
+        
+        favoritesList.appendChild(btn)
     }
 }
 //function to show stored favorites
@@ -122,16 +133,29 @@ function init() {
     var storedFavorites = JSON.parse(localStorage.getItem('Show'))
 
     if (storedFavorites !== null) {
-favorites = storedFavorites
+        favorites = storedFavorites
     }
     renderFavorites()
-    
-}
+ }
+
+favoritesList.addEventListener('click', function(event) {
+    var btn = event.target
+    console.log(btn.innerText);
+    search = btn.innerText
+    searchOption()
+})  
 
 textInput.addEventListener("change", function() {
     searchTxt = textInput.value
 })
 
+favoriteEl.addEventListener('click', function (event) {
+    var btn = event.target
+    console.log(btn);
+    saveToLocalStorage(title)
+    renderFavorites()
+})
+
 init()
-//searchBtn.addEventListener('click', getImdb());
+
 
