@@ -62,7 +62,7 @@ function searchOption(event) {
         var results = data.results[0]
         title = results.name
         
-        favoriteEl.innerHTML = `<h3>Search Results For: ${results.name}</h3> <button class="button button-like favorite-button">
+        favoriteEl.innerHTML = `<h3>Search Results For: ${results.name}</h3> <button id="favorite-button" class="button button-like">
         <span>Favorite</span>
         <i class="fa fa-star"></i>
         </button>`
