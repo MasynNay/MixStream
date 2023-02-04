@@ -1,3 +1,4 @@
+/*grabbing class button-like from html and adding style */
 .button-like {
   border: 2px solid #b6dac7;
   background-color: transparent;
@@ -12,19 +13,23 @@
   transition: all ease 0.4s;
 }
 
+/*giving class button-like span margin*/
 .button-like span {
   margin-left: 0.5rem;
 }
 
+/*giving class button-like .fa and button-lik span transition styling*/
 .button-like .fa,
 .button-like span {
   transition: all ease 0.4s;
 }
 
+/*giving class button-like:focus with specific background color of transparent*/
 .button-like:focus {
   background-color: transparent;
 }
 
+/*giving both classes same color*/
 .button-like:focus .fa,
 .button-like:focus span {
   color: #b6dac7;
@@ -34,73 +39,66 @@
   border-color: #FFD700;
   background-color: transparent;
 }
-
 .button-like:hover .fa,
 .button-like:hover span {
   color: #FFD700;
 }
 
+/*giving all liked classes in html color with background color and border color*/
 .liked {
   background-color: #FFD700;
   border-color: #FFD700;
 }
-
 .liked .fa,
 .liked span {
   color: #fefefe;
 }
-
 .liked:focus {
   background-color: #FFD700;
 }
-
 .liked:focus .fa,
 .liked:focus span {
   color: #fefefe;
 }
-
 .liked:hover {
   background-color: #FFD700;
   border-color: #FFD700;
 }
-
 .liked:hover .fa,
 .liked:hover span {
   color: #fefefe;
 }
+
+/*giving heading tags with color*/
 h6 {
   color: white;
 }
-
 h5 {
   color: #242424;
   text-align: center;
 }
-
 h4 {
   color: white;
 }
-
 h3 {
   color: white;
 }
-
 p {
   color: #242424;
   text-align: center;
 }
-
 ul {
   color: #242424;
   text-align: center;
 }
+
+/*giving id imdb-poster only scale resize*/
 li {
  list-style-type: none;
 }
 body {
   background-color: #b6dac7;
 }
-
 .listButtons {
   border: 2px solid #242424;
   background-color: #242424;
@@ -122,7 +120,6 @@ display: flex;
 text-align: center;
 flex-direction: column;
 }
-
 #imdb-poster {
   scale: 100%;
 }
@@ -132,6 +129,7 @@ flex-direction: column;
   flex-direction: column-reverse;
 }
 
+/*giving id favorite-card id in html styling*/
 #favorite-card {
   display: flex;
   position: relative;
@@ -147,6 +145,7 @@ a {
   margin: .75rem 4em;
 }
 
+/*styling the class holy-grail-grid*/
 .holy-grail-grid {
   display: -ms-grid;
   display: grid;
@@ -159,7 +158,7 @@ a {
   background-color: #b6dac7;
 }
 
-
+/*styling the class input-group-rounded and class input-group-field*/
 .input-group-rounded .input-group-field {
   border-radius: 5000px 0 0 5000px;
   padding-left: 1rem;
@@ -167,6 +166,7 @@ a {
   color: #242424;
 }
 
+/*styling the classinput-group-rounded and input-group-button and button classes*/
 .input-group-rounded .input-group-button .button {
   border-radius: 0 5000px 5000px 0;
   font-size: 0.8rem;
@@ -174,7 +174,7 @@ a {
   color: #242424;
 }
 
-
+/*styling the class marketing-site-content-section*/
 .marketing-site-content-section {
   display: -webkit-flex;
   display: -ms-flexbox;
@@ -185,6 +185,7 @@ a {
   margin: 3rem;
 }
 
+/*styling the class marketing-site-content-section button round */
 .marketing-site-content-section .button.round {
   border-radius: 50px;
   text-transform: uppercase;
@@ -192,6 +193,7 @@ a {
   background-color: #272526;
 }
 
+/*styling the class marketing-site-content-section-img*/
 .marketing-site-content-section .marketing-site-content-section-img {
   -webkit-align-self: center;
       -ms-flex-item-align: center;
@@ -202,6 +204,7 @@ a {
           flex: 1 0 100%;
 }
 
+/*styling the class marketing-site-content-section*-block with flex styling and color */
 .marketing-site-content-section .marketing-site-content-section-block {
   padding: 1rem;
   -webkit-flex: 1 0 100%;
@@ -226,14 +229,15 @@ a {
           align-items: center;
 }
 
+/*styling the class marketing-site-content-section-header and subheader with specific font sizes*/
 .marketing-site-content-section-block-header {
   font-size: 24px;
 }
-
 .marketing-site-content-section-block-subheader {
   font-size: 13px;
 }
 
+/*classes wiith same padding and background color*/
 .holy-grail-header,
 .holy-grail-left,
 .holy-grail-middle, 
@@ -254,12 +258,14 @@ a {
   padding: 3rem;
 }
 
+/*class with grid styling*/
 .holy-grail-footer {
   -ms-grid-column: 1;
       grid-column-start: 1;
   grid-column-end: 4;
 }
 
+/* media queries for different classes*/
 @media screen and (max-width: 60em) {
   .holy-grail-left {
     -ms-grid-row: 2;
@@ -269,7 +275,6 @@ a {
     grid-column-end: 4;
   }
 }
-
 @media screen and (max-width: 60em) {
   .holy-grail-middle {
     -ms-grid-row: 4;
@@ -279,18 +284,15 @@ a {
     grid-column-end: 4;
   }
 }
-
 @media screen and (max-width: 60em) {
   .holy-grail-grid {
     -ms-grid-rows: 2fr 1fr 5fr 1fr;
         grid-template-rows: 2fr 1fr 5fr 1fr;
   }
 }
-
 @media screen and (max-width: 60em) {
  
 }
-
 @media screen and (min-width: 40em) {
   .marketing-site-content-section .marketing-site-content-section-img {
     -webkit-flex: 1 0 50%;
@@ -298,7 +300,6 @@ a {
             flex: 1 0 50%;
   }
 }
-
 @media screen and (min-width: 40em) {
   .marketing-site-content-section .marketing-site-content-section-block {
     -webkit-flex: 1 0 50%;
