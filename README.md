@@ -21,6 +21,8 @@ If you are a couch potato, or someone who is just looking for more information o
 - THEN I will see available information for the input from IMDB
 - WHEN I tap on the icon next to the search result
 - THEN the media name is saved into local storage
+- WHEN I try to search without 
+- THEN a modal appears with a message
 
 ## Application Demonstration
 
